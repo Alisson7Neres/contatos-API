@@ -40,13 +40,13 @@ public class NumerosServices {
 		return repository.save(obj);
 	}
 	
-	public Numeros update(Integer id, NumerosDTO objDto) {
-		Numeros obj = findById(id);
-		obj.setNumero(objDto.getNumero());
-		return repository.save(obj);
+	public Numeros update(Integer id, Numeros numeros) {
+		Numeros numero = findById(id);
+		numero.setNumero(numeros.getNumero());
+		return repository.save(numero);
 	}
 	
-	public void deletar(Integer id) {
+	public void delete(Integer id) {
 		findById(id);
 		repository.deleteById(id);
 	}

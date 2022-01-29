@@ -22,7 +22,6 @@ public class Contatos implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotEmpty(message = "ID NÃO GERADO!")
 	private Integer id;
 	
 	@NotEmpty(message = "Nome não pode ser vázio")

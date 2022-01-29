@@ -18,7 +18,6 @@ public class Numeros implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@NotBlank(message = "ID NÃO GERADO!")
 	private Integer id;
 	
 	@NotBlank(message = "Número precisa ser PREENCHIDO!")
