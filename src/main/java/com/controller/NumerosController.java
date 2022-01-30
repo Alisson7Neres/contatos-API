@@ -45,14 +45,14 @@ public class NumerosController {
 		return ResponseEntity.ok().body(listDTO);
 	}
 	
-	@PostMapping(value = "/")
-	public ResponseEntity<Numeros> create(@RequestParam(value = "contatos", defaultValue = "0")Integer contatos_join, @RequestBody Numeros obj) {
+	@PostMapping
+	public ResponseEntity<Numeros> create(@RequestParam(value = "contatos", defaultValue = "0")Integer contatos_join, @Valid @RequestBody Numeros obj) {
 			Numeros numero = service.create(contatos_join, obj);
 			URI uri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/numeros/{id}").buildAndExpand(numero.getId()).toUri();
 			return ResponseEntity.created(uri).build();
 	}
 	
-	@PutMapping(value = "/")
+	@PutMapping(value = "/{id}")
 	public ResponseEntity<Numeros> update(@PathVariable Integer id,@Valid @RequestBody Numeros numeros) {
 		Numeros numero = service.update(id, numeros);
 		return ResponseEntity.ok().body(numero);

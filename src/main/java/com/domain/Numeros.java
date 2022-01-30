@@ -7,9 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Numeros implements Serializable{
@@ -25,6 +28,8 @@ public class Numeros implements Serializable{
 	private String numero;
 	
 	// chave estrangeira
+	@JsonIgnore
+	@ManyToOne
 	@JoinColumn(name = "contatos_join")
 	private Contatos contatos;
 	
